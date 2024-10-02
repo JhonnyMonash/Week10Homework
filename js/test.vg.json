@@ -1,0 +1,35 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
+    "title": "Melbourne Train Station Ridership",
+    "projection": {
+        "type": "conicEqualArea",
+        "parallels": [
+            -36,
+            -38
+        ],
+        "rotate": [
+            -145,
+            0,
+            0
+        ]
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/JhonnyMonash/Week9Homework/main/data/vic_localities.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "vic_localities"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "gainsboro",
+                "stroke": "white"
+            }
+        }
+    ]
+}

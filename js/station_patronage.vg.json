@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height":800,
+  "title": "Melbourne Train Station Ridership FY23-24",
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [-36, -38],
+    "rotate": [-145, 0, 0]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/JhonnyMonash/Week9Homework/main/data/MelbGeelongLGAtopojson.json",
+        "format": {
+          "type": "topojson",
+          "feature": "VICLGAgeojson"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#b6b6b6", 
+        "stroke": "#ffffff", 
+        "strokeWidth": 1
+    }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/JhonnyMonash/Week9Homework/main/data/Annual_Metropolitan_Train_Station_Entries_2023-24.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.9,
+        "stroke": "black", 
+        "strokeWidth": 1
+        },
+      "encoding": {
+        "longitude": { "field": "Stop_long", "type": "quantitative" },
+        "latitude": { "field": "Stop_lat", "type": "quantitative" },
+        "color": {
+            "field": "Pax_annual", 
+            "type": "quantitative",
+            "scale": {
+                "type": "linear",
+                "range": [
+                    "blue",
+                    "red"
+                ]
+            },
+            "legend": {
+                "title": "Ridership (Passengers)"
+            }
+        },
+        "tooltip": [
+          { "field": "Stop_name", "type": "ordinal", "title": "Stop Name" },
+          { "field": "Pax_annual", "type": "quantitative", "title": "Number of Passengers","format" : ",d" }
+        ]
+      }
+    }
+  ]
+}
