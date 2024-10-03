@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 800,
-  "height":800,
+  "height": 800,
   "title": "Melbourne Train Station Ridership FY23-24",
   "params": [
     {
@@ -38,37 +38,134 @@
       }
     },
     {
-      "name": "line_selection",
-      "value": "All",
+      "name": "line_Alamein",
+      "value": true,
       "bind": {
-        "input": "select",
-        "options": [
-          "All",
-          "Alamein",
-          "Belgrave",
-          "Craigieburn",
-          "Cranbourne",
-          "Frankston",
-          "Glen Waverley",
-          "Hurstbridge",
-          "Lilydale",
-          "Mernda",
-          "Pakenham",
-          "Sandringham",
-          "Sunbury",
-          "Upfield",
-          "Werribee",
-          "Williamstown"
-        ],
-        "name": "Select Line: "
+        "input": "checkbox",
+        "name": "Alamein"
+      }
+    },
+    {
+      "name": "line_Belgrave",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Belgrave"
+      }
+    },
+    {
+      "name": "line_Craigieburn",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Craigieburn"
+      }
+    },
+    {
+      "name": "line_Cranbourne",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Cranbourne"
+      }
+    },
+    {
+      "name": "line_Frankston",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Frankston"
+      }
+    },
+    {
+      "name": "line_Glen_Waverley",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Glen Waverley"
+      }
+    },
+    {
+      "name": "line_Hurstbridge",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Hurstbridge"
+      }
+    },
+    {
+      "name": "line_Lilydale",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Lilydale"
+      }
+    },
+    {
+      "name": "line_Mernda",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Mernda"
+      }
+    },
+    {
+      "name": "line_Pakenham",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Pakenham"
+      }
+    },
+    {
+      "name": "line_Sandringham",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Sandringham"
+      }
+    },
+    {
+      "name": "line_Sunbury",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Sunbury"
+      }
+    },
+    {
+      "name": "line_Upfield",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Upfield"
+      }
+    },
+    {
+      "name": "line_Werribee",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Werribee"
+      }
+    },
+    {
+      "name": "line_Williamstown",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Williamstown"
       }
     }
   ],
   "projection": {
     "type": "equirectangular",
-    "center": {"expr": "[center_longitude, center_latitude]"},
-    "scale":{"expr": "zoom_level"}
-
+    "center": {
+      "expr": "[center_longitude, center_latitude]"
+    },
+    "scale": {
+      "expr": "zoom_level"
+    }
   },
   "layer": [
     {
@@ -81,10 +178,10 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#b6b6b6", 
-        "stroke": "#ffffff", 
+        "fill": "#b6b6b6",
+        "stroke": "#ffffff",
         "strokeWidth": 1
-    }
+      }
     },
     {
       "data": {
@@ -92,42 +189,74 @@
       },
       "transform": [
         {
-          "calculate": "(zoom_level*zoom_level) / 42000000",
+          "calculate": "(zoom_level * zoom_level) / 42000000",
           "as": "circle_size"
         },
         {
-  "filter": "line_selection == 'All' || datum.Line == line_selection"
-}
-
+          "calculate": "split(datum.Line, /,\\s*/)",
+          "as": "LineArray"
+        },
+        {
+          "flatten": [
+            "LineArray"
+          ]
+        },
+        {
+          "filter": "(line_Alamein && datum.LineArray == 'Alamein') || (line_Belgrave && datum.LineArray == 'Belgrave') || (line_Craigieburn && datum.LineArray == 'Craigieburn') || (line_Cranbourne && datum.LineArray == 'Cranbourne') || (line_Frankston && datum.LineArray == 'Frankston') || (line_Glen_Waverley && datum.LineArray == 'Glen Waverley') || (line_Hurstbridge && datum.LineArray == 'Hurstbridge') || (line_Lilydale && datum.LineArray == 'Lilydale') || (line_Mernda && datum.LineArray == 'Mernda') || (line_Pakenham && datum.LineArray == 'Pakenham') || (line_Sandringham && datum.LineArray == 'Sandringham') || (line_Sunbury && datum.LineArray == 'Sunbury') || (line_Upfield && datum.LineArray == 'Upfield') || (line_Werribee && datum.LineArray == 'Werribee') || (line_Williamstown && datum.LineArray == 'Williamstown')"
+        }
       ],
       "mark": {
         "type": "circle",
         "opacity": 0.9,
-        "stroke": "black", 
+        "stroke": "black",
         "strokeWidth": 1
-        },
+      },
       "encoding": {
-        "longitude": { "field": "Stop_long", "type": "quantitative" },
-        "latitude": { "field": "Stop_lat", "type": "quantitative" },
-        "size":{"field": "circle_size","type": "quantitative", "scale":null,"legend":null} ,
+        "longitude": {
+          "field": "Stop_long",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Stop_lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "circle_size",
+          "type": "quantitative",
+          "scale": null,
+          "legend": null
+        },
         "color": {
-            "field": "Pax_annual", 
-            "type": "quantitative",
-            "scale": {
-                "type": "linear",
-                "range": [
-                    "blue",
-                    "red"
-                ]
-            },
-            "legend": {
-                "title": "Ridership (Passengers)"
-            }
+          "field": "Pax_annual",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "range": [
+              "blue",
+              "red"
+            ]
+          },
+          "legend": {
+            "title": "Ridership (Passengers)"
+          }
         },
         "tooltip": [
-          { "field": "Stop_name", "type": "ordinal", "title": "Stop Name" },
-          { "field": "Pax_annual", "type": "quantitative", "title": "Number of Passengers","format" : ",d" },
-          { "field": "Line", "type": "ordinal", "title": "Train Line"}
+          {
+            "field": "Stop_name",
+            "type": "ordinal",
+            "title": "Stop Name"
+          },
+          {
+            "field": "Pax_annual",
+            "type": "quantitative",
+            "title": "Number of Passengers",
+            "format": ",d"
+          },
+          {
+            "field": "Line",
+            "type": "ordinal",
+            "title": "Train Lines"
+          }
         ]
       }
     }
