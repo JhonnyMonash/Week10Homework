@@ -17,7 +17,7 @@
     },
     {
       "name": "center_longitude",
-      "value": 145,
+      "value": 145.1,
       "bind": {
         "input": "range",
         "min": 144.9,
@@ -39,123 +39,63 @@
     },
     {
       "name": "line_Alamein",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Alamein"
-      }
+      "value": true
     },
     {
       "name": "line_Belgrave",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Belgrave"
-      }
+      "value": true
     },
     {
       "name": "line_Craigieburn",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Craigieburn"
-      }
+      "value": true
     },
     {
       "name": "line_Cranbourne",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Cranbourne"
-      }
+      "value": true
     },
     {
       "name": "line_Frankston",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Frankston"
-      }
+      "value": true
     },
     {
       "name": "line_Glen_Waverley",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Glen Waverley"
-      }
+      "value": true
     },
     {
       "name": "line_Hurstbridge",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Hurstbridge"
-      }
+      "value": true
     },
     {
       "name": "line_Lilydale",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Lilydale"
-      }
+      "value": true
     },
     {
       "name": "line_Mernda",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Mernda"
-      }
+      "value": true
     },
     {
       "name": "line_Pakenham",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Pakenham"
-      }
+      "value": true
     },
     {
       "name": "line_Sandringham",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Sandringham"
-      }
+      "value": true
     },
     {
       "name": "line_Sunbury",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Sunbury"
-      }
+      "value": true
     },
     {
       "name": "line_Upfield",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Upfield"
-      }
+      "value": true
     },
     {
       "name": "line_Werribee",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Werribee"
-      }
+      "value": true
     },
     {
       "name": "line_Williamstown",
-      "value": true,
-      "bind": {
-        "input": "checkbox",
-        "name": "Williamstown"
-      }
+      "value": true
     }
   ],
   "projection": {
