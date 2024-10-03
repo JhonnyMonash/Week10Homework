@@ -4,6 +4,7 @@ vegaEmbed("#vg_2", vg_2, { "actions": false }).then(function (result) {
     var lines = [
         'Alamein',
         'Belgrave',
+        'City Loop',
         'Craigieburn',
         'Cranbourne',
         'Frankston',
