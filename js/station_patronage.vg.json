@@ -199,7 +199,7 @@
           {
             "field": "Line",
             "type": "ordinal",
-            "title": "Train Lines"
+            "title": "Train Lines Served"
           }
         ]
       }
