@@ -3,10 +3,72 @@
   "width": 800,
   "height":800,
   "title": "Melbourne Train Station Ridership FY23-24",
+  "params": [
+    {
+      "name": "zoom_level",
+      "value": 35000,
+      "bind": {
+        "input": "range",
+        "min": 35000,
+        "max": 80000,
+        "step": 100,
+        "name": "Zoom: "
+      }
+    },
+    {
+      "name": "center_longitude",
+      "value": 145,
+      "bind": {
+        "input": "range",
+        "min": 144.9,
+        "max": 145.25,
+        "step": 0.01,
+        "name": "Center Longitude (Left - Right): "
+      }
+    },
+    {
+      "name": "center_latitude",
+      "value": -37.95,
+      "bind": {
+        "input": "range",
+        "min": -38.2,
+        "max": -37.8,
+        "step": 0.01,
+        "name": "Center Latitude (Up - Down): "
+      }
+    },
+    {
+      "name": "line_selection",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Alamein",
+          "Belgrave",
+          "Craigieburn",
+          "Cranbourne",
+          "Frankston",
+          "Glen Waverley",
+          "Hurstbridge",
+          "Lilydale",
+          "Mernda",
+          "Pakenham",
+          "Sandringham",
+          "Sunbury",
+          "Upfield",
+          "Werribee",
+          "Williamstown"
+        ],
+        "name": "Select Line: "
+      }
+    }
+  ],
   "projection": {
-    "type": "conicEqualArea",
-    "parallels": [-36, -38],
-    "rotate": [-145, 0, 0]
+    "type": "equirectangular",
+    "center": {"expr": "[center_longitude, center_latitude]"},
+    "scale":{"expr": "zoom_level"}
+
   },
   "layer": [
     {
@@ -26,8 +88,18 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/JhonnyMonash/Week9Homework/main/data/Annual_Metropolitan_Train_Station_Entries_2023-24.csv"
+        "url": "https://raw.githubusercontent.com/JhonnyMonash/Week10Homework/refs/heads/main/data/Annual_Metropolitan_Train_Station_Entries_2023-24.csv"
       },
+      "transform": [
+        {
+          "calculate": "(zoom_level*zoom_level) / 42000000",
+          "as": "circle_size"
+        },
+        {
+  "filter": "line_selection == 'All' || datum.Line == line_selection"
+}
+
+      ],
       "mark": {
         "type": "circle",
         "opacity": 0.9,
@@ -37,6 +109,7 @@
       "encoding": {
         "longitude": { "field": "Stop_long", "type": "quantitative" },
         "latitude": { "field": "Stop_lat", "type": "quantitative" },
+        "size":{"field": "circle_size","type": "quantitative", "scale":null,"legend":null} ,
         "color": {
             "field": "Pax_annual", 
             "type": "quantitative",
