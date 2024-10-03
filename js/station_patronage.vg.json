@@ -53,7 +53,8 @@
         },
         "tooltip": [
           { "field": "Stop_name", "type": "ordinal", "title": "Stop Name" },
-          { "field": "Pax_annual", "type": "quantitative", "title": "Number of Passengers","format" : ",d" }
+          { "field": "Pax_annual", "type": "quantitative", "title": "Number of Passengers","format" : ",d" },
+          { "field": "Line", "type": "ordinal", "title": "Train Line"}
         ]
       }
     }
