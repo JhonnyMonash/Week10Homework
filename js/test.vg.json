@@ -1,35 +1,223 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
-    "height": "container",
-    "title": "Melbourne Train Station Ridership",
-    "projection": {
-        "type": "conicEqualArea",
-        "parallels": [
-            -36,
-            -38
-        ],
-        "rotate": [
-            -145,
-            0,
-            0
-        ]
+    "description": "A bar chart showing the top 10 busiest train stations by annual ridership, filtered by train line.",
+    "width": 600,
+    "height": 400,
+    "title": "Busiest Train Stations (FY23-24)",
+    "data": {
+        "url": "https://raw.githubusercontent.com/JhonnyMonash/Week10Homework/refs/heads/main/data/Annual_Metropolitan_Train_Station_Entries_2023-24.csv"
     },
-    "layer": [
+    "params": [
         {
-            "data": {
-                "url": "https://raw.githubusercontent.com/JhonnyMonash/Week9Homework/main/data/vic_localities.json",
-                "format": {
-                    "type": "topojson",
-                    "feature": "vic_localities"
-                }
-            },
-            "mark": {
-                "type": "geoshape",
-                "fill": "gainsboro",
-                "stroke": "white"
+            "name": "line_Alamein",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Alamein"
+            }
+        },
+        {
+            "name": "line_Belgrave",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Belgrave"
+            }
+        },
+        {
+            "name": "line_City_Loop",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "City Loop"
+            }
+        },
+        {
+            "name": "line_Craigieburn",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Craigieburn"
+            }
+        },
+        {
+            "name": "line_Cranbourne",
+            "value": true,
+            "bind": {
+                "input": "checkbox",
+                "name": "Cranbourne"
+            }
+        },
+        {
+            "name": "line_Frankston",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Frankston"
+            }
+        },
+        {
+            "name": "line_Glen_Waverley",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Glen Waverley"
+            }
+        },
+        {
+            "name": "line_Hurstbridge",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Hurstbridge"
+            }
+        },
+        {
+            "name": "line_Lilydale",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Lilydale"
+            }
+        },
+        {
+            "name": "line_Mernda",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Mernda"
+            }
+        },
+        {
+            "name": "line_Pakenham",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Pakenham"
+            }
+        },
+        {
+            "name": "line_Sandringham",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Sandringham"
+            }
+        },
+        {
+            "name": "line_Sunbury",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Sunbury"
+            }
+        },
+        {
+            "name": "line_Upfield",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Upfield"
+            }
+        },
+        {
+            "name": "line_Werribee",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Werribee"
+            }
+        },
+        {
+            "name": "line_Williamstown",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Williamstown"
             }
         }
-    ]
+    ],
+    "transform": [
+        {
+            "calculate": "split(datum.Line, /,\\s*/)",
+            "as": "LineArray"
+        },
+        {
+            "flatten": [
+                "LineArray"
+            ]
+        },
+        {
+            "filter": "(line_Alamein && datum.LineArray == 'Alamein') || (line_Belgrave && datum.LineArray == 'Belgrave') || (line_City_Loop && datum.LineArray == 'City Loop') || (line_Craigieburn && datum.LineArray == 'Craigieburn') || (line_Cranbourne && datum.LineArray == 'Cranbourne') || (line_Frankston && datum.LineArray == 'Frankston') || (line_Glen_Waverley && datum.LineArray == 'Glen Waverley') || (line_Hurstbridge && datum.LineArray == 'Hurstbridge') || (line_Lilydale && datum.LineArray == 'Lilydale') || (line_Mernda && datum.LineArray == 'Mernda') || (line_Pakenham && datum.LineArray == 'Pakenham') || (line_Sandringham && datum.LineArray == 'Sandringham') || (line_Sunbury && datum.LineArray == 'Sunbury') || (line_Upfield && datum.LineArray == 'Upfield') || (line_Werribee && datum.LineArray == 'Werribee') || (line_Williamstown && datum.LineArray == 'Williamstown')"
+        },
+        {
+            "sort": [
+                {
+                    "field": "Pax_annual",
+                    "order": "descending"
+                }
+            ]
+        },
+        {
+            "window": [
+                {
+                    "op": "rank",
+                    "as": "rank"
+                }
+            ],
+            "sort": [
+                {
+                    "field": "Pax_annual",
+                    "order": "descending"
+                }
+            ],
+            "groupby": [
+                "Line"
+            ]
+        }
+    ],
+    "mark": "bar",
+    "encoding": {
+        "x": {
+            "field": "Stop_name",
+            "type": "ordinal",
+            "sort": "-y",
+            "axis": {
+                "labelAngle": -45,
+                "title": "Train Station"
+            }
+        },
+        "y": {
+            "field": "Pax_annual",
+            "type": "quantitative",
+            "axis": {
+                "title": "Annual Ridership"
+            }
+        },
+        "color": {
+            "field": "Line",
+            "type": "nominal",
+            "legend": {
+                "title": "Train Line"
+            }
+        },
+        "tooltip": [
+            {
+                "field": "Stop_name",
+                "type": "ordinal",
+                "title": "Train Station"
+            },
+            {
+                "field": "Pax_annual",
+                "type": "quantitative",
+                "title": "Annual Ridership",
+                "format": ",d"
+            },
+            {
+                "field": "Line",
+                "type": "ordinal",
+                "title": "Train Line"
+            }
+        ]
+    }
 }
