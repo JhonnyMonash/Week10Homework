@@ -39,19 +39,19 @@
     },
     {
       "name": "line_Alamein",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Belgrave",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Craigieburn",
-      "value": true
+      "value": false
     },
     {
       "name": "line_City_Loop",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Cranbourne",
@@ -59,47 +59,47 @@
     },
     {
       "name": "line_Frankston",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Glen_Waverley",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Hurstbridge",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Lilydale",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Mernda",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Pakenham",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Sandringham",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Sunbury",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Upfield",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Werribee",
-      "value": true
+      "value": false
     },
     {
       "name": "line_Williamstown",
-      "value": true
+      "value": false
     }
   ],
   "projection": {

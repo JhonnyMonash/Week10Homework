@@ -3,138 +3,74 @@
     "description": "A bar chart showing the top 10 busiest train stations by annual ridership, filtered by train line.",
     "width": 600,
     "height": 400,
-    "title": "Busiest Train Stations (FY23-24)",
+    "title": "Busiest Train Stations for selected lines (FY23-24)",
     "data": {
         "url": "https://raw.githubusercontent.com/JhonnyMonash/Week10Homework/refs/heads/main/data/Annual_Metropolitan_Train_Station_Entries_2023-24.csv"
     },
     "params": [
         {
             "name": "line_Alamein",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Alamein"
-            }
+            "value": false
         },
         {
             "name": "line_Belgrave",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Belgrave"
-            }
+            "value": false
         },
         {
             "name": "line_City_Loop",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "City Loop"
-            }
+            "value": false
         },
         {
             "name": "line_Craigieburn",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Craigieburn"
-            }
+            "value": false
         },
         {
             "name": "line_Cranbourne",
-            "value": true,
-            "bind": {
-                "input": "checkbox",
-                "name": "Cranbourne"
-            }
+            "value": true
         },
         {
             "name": "line_Frankston",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Frankston"
-            }
+            "value": false
         },
         {
             "name": "line_Glen_Waverley",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Glen Waverley"
-            }
+            "value": false
         },
         {
             "name": "line_Hurstbridge",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Hurstbridge"
-            }
+            "value": false
         },
         {
             "name": "line_Lilydale",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Lilydale"
-            }
+            "value": false
         },
         {
             "name": "line_Mernda",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Mernda"
-            }
+            "value": false
         },
         {
             "name": "line_Pakenham",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Pakenham"
-            }
+            "value": false
         },
         {
             "name": "line_Sandringham",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Sandringham"
-            }
+            "value": false
         },
         {
             "name": "line_Sunbury",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Sunbury"
-            }
+            "value": false
         },
         {
             "name": "line_Upfield",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Upfield"
-            }
+            "value": false
         },
         {
             "name": "line_Werribee",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Werribee"
-            }
+            "value": false
         },
         {
             "name": "line_Williamstown",
-            "value": false,
-            "bind": {
-                "input": "checkbox",
-                "name": "Williamstown"
-            }
+            "value": false
         }
     ],
     "transform": [
