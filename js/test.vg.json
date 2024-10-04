@@ -130,13 +130,6 @@
                 "title": "Annual Ridership"
             }
         },
-        "color": {
-            "field": "Line",
-            "type": "nominal",
-            "legend": {
-                "title": "Train Line"
-            }
-        },
         "tooltip": [
             {
                 "field": "Stop_name",
